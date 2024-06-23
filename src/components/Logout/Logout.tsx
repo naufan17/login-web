@@ -6,10 +6,9 @@ const Logout: React.FC = () => {
 
     const logoutUser = async () => {
         try {
-            sessionStorage.removeItem('token');
             logout();
         } catch(e) {
-            console.log(e);
+            console.error(e);
         }
     }
 

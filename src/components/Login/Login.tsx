@@ -13,11 +13,10 @@ const Login: React.FC = () => {
 
     const loginUser = async () => {
         try {
-            const result = await axios.post('admin/login', { username, password });
-            sessionStorage.setItem('token', result.data.data.token);
-            login();
+            const result = await axios.post('/users/login', { username, password });
+            login(result.data);
         } catch(e) {
-            console.log(e);
+            console.error(e);
             setLoading(false);
             setAlert(true);
         }
