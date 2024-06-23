@@ -3,11 +3,9 @@ import Header from '../components/Header/Header'
 
 const NotFound: React.FC = () => {      
     return (
-        <>
-            <Header
-                title='Page Not Found'
-            />
-        </>
+        <Header
+            title={'Page Not Found'}
+        />
     );
 }
 

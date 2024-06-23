@@ -3,11 +3,10 @@ import Header from '../components/Header/Header'
 
 const Dashboard: React.FC = () => {      
     return (
-        <>
-            <Header
-                title='Dashboard'
-            />
-        </>
+        <Header
+            title={'Dashboard'}
+            logout={true}
+        />
     );
 }
 
