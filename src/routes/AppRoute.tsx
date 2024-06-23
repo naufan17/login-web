@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Logout from "../pages/Logout";
 import Dashboard from '../pages/Dashboard';
 import NotFound from "../pages/NotFound";
+import ProtectedRoute from '../middleware/ProtectRoute';
 
 const AppRoute: React.FC = () => {
     return (
@@ -13,8 +14,8 @@ const AppRoute: React.FC = () => {
             <Route path = "/" element = {<Home/>}/>
             <Route path = "/register" element = {<Register/>}/>
             <Route path = "/login" element = {<Login/>}/>
-            <Route path = "/logout" element = {<Logout/>}/>
-            <Route path = "/dashboard" element = {<Dashboard/>}/>
+            <Route path = "/logout" element = {<ProtectedRoute><Logout/></ProtectedRoute>}/>
+            <Route path = "/dashboard" element = {<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
             <Route path = "*" element = {<NotFound/>}/>
         </Routes>
     );

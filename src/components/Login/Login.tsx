@@ -1,20 +1,20 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from '../../config/Api';
 import { Link } from 'react-router-dom';
+import axios from '../../config/Api';
+import { useAuth } from '../../middleware/AuthProvider';
 
 const Login: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [alert, setAlert] = useState<boolean>(false);
-    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const loginUser = async () => {
         try {
             const result = await axios.post('admin/login', { username, password });
             sessionStorage.setItem('token', result.data.data.token);
-            navigate('/dashboard');
+            login();
         } catch(e) {
             console.log(e);
             setLoading(false);
